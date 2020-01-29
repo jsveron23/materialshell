@@ -7,7 +7,9 @@ eval cyan=$fg[cyan]
 eval white=$fg[white]
 eval grey=$fg[grey]
 
-PROMPT='$(_user_host)${_current_dir}$(git_prompt_info)
+# PROMPT='$(_user_host)${_current_dir}$(git_prompt_info)
+# %{$white%}>%{$reset_color%} '
+PROMPT='$(_user_host)$(git_prompt_info)
 %{$white%}>%{$reset_color%} '
 PROMPT2='%{$grey%}◀%{$reset_color%} '
 RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(git_remote_status) $(git_prompt_short_sha) ${_return_status} %{$white%}%T%{$(echotc DO 1)%}%{$reset_color%}'
@@ -15,8 +17,11 @@ RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(git_remote_status) $(git_prompt_short_
 local _current_dir="%{$green%}%0~%{$reset_color%} "
 local _return_status="%{$red%}%(?..×)%{$reset_color%}"
 
+# function _user_host() {
+#   echo "%{$red%}%n%{$reset_color%}%{$white%} at %{$yellow%}%m%{$reset_color%} %{$white%}in "
+# }
 function _user_host() {
-  echo "%{$red%}%n%{$reset_color%}%{$white%} at %{$yellow%}%m%{$reset_color%} %{$white%}in "
+  echo "%{$red%}%n%{$reset_color%}%{$white%} at %{$yellow%}%m%{$reset_color%} %{$white%}"
 }
 
 function _vi_status() {
